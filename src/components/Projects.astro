@@ -1,0 +1,112 @@
+---
+import Gallery from "./Gallery.astro";
+import GalleryMobile from "./GalleryMobile.astro";
+import MobileMockup from "./MobileMockup.astro";
+import LaptopMockup from "./LaptopMockup.astro";
+import ButtonPurple from "./ButtonPurple.astro";
+import BluePill from "./Pills/BluePill.astro";
+import LimePill from "./Pills/LimePill.astro";
+import PinkPill from "./Pills/PinkPill.astro";
+import PurplePill from "./Pills/PurplePill.astro";
+import RedPill from "./Pills/RedPill.astro";
+import CyanPill from "./Pills/CyanPill.astro";
+
+const TAGS = {
+    ROGUELIKE: {
+        name: "Roguelike",
+        class: CyanPill
+    },
+    RPG: {
+        name: "RPG",
+        class: PinkPill
+    },
+    CASUAL: {
+        name: "Casual",
+        class: PurplePill
+    },
+    MOBILE: {
+        name: "Mobile",
+        class: PinkPill
+    },
+    PC: {
+        name: "PC",
+        class: CyanPill
+    },
+    PROCEDURALGENERATION: {
+        name: "Procedural Generation",
+        class: PurplePill
+    },
+    PUZZLE: {
+        name: "Puzzle",
+        class: CyanPill
+    },
+    ENEMYAI: {
+        name: "Enemy AI",
+        class: PinkPill
+    },
+};
+
+const PROJECTS = [
+  {
+    title: "Taco Cat",
+    description: "Join Taco on its way through the endless city to save the Taco Shop. Dive into a stunning world with beautiful 2D pixel art graphics. Casual roguelike with automatic RPG battles where strategy is key. Grow stronger with each playthrough, unlocking powerful buffs, unique cards and weapons. Feast on delicious food and dive deeper into the city.",
+    link: "https://nytala-games.itch.io/taco-cat-roguelike-rpg",
+    images: ["/ssTacoCat/ss1.jpg", "/ssTacoCat/ss2.png", "/ssTacoCat/ss3.png", "/ssTacoCat/ss4.png", "/ssTacoCat/ss5.png", "/ssTacoCat/ss6.png"],
+    video: "/VideoTacoCat.mp4",
+    tags: [TAGS.ROGUELIKE, TAGS.RPG, TAGS.PROCEDURALGENERATION],
+    mobile: true
+  },
+  {
+    title: "Cat Link",
+    description: "Casual matching puzzle game. Relaxing and challenging gameplay. Connect the cats to clear the board. Level up to earn rewards and dress up your cats with beautiful skins. Get the highest score and climb the leaderboard.",
+    images: ["/ssCatLink/ss1.jpg", "/ssCatLink/ss2.jpg", "/ssCatLink/ss3.jpg", "/ssCatLink/ss4.jpg", "/ssCatLink/ss5.jpg"],
+    video: "/VideoCatLink.mp4",
+    tags: [TAGS.CASUAL, TAGS.MOBILE, TAGS.PUZZLE],
+    mobile: true
+  },
+  {
+    title: "Enter the Dungeon",
+    description: "2D Roguelike Bullet Hell with procedural random dungeon generation. Fight against enemies powered by AI. Collect loot and upgrade your character. Explore the dungeon and find the exit. Can you reach the end?",
+    images: ["/dniFoto.JPG", "/dniFoto.JPG", "/dniFoto.JPG"],
+    video: "/EnterTheDungeonVideo.mp4",
+    tags: [TAGS.ROGUELIKE, TAGS.PROCEDURALGENERATION, TAGS.ENEMYAI],
+    mobile: false
+  },
+];
+---
+
+{
+    PROJECTS.map((project) => (
+        <article class="mb-10">
+            <div class="flex gap-x-2 items-center mb-3">
+                <img class="rounded-full size-10" src="/TC.png" alt="TacoCat image" />
+                <h3 class="text-2xl font-semibold text-pink-300 mb-">{project.title}</h3>
+            </div>
+            <p class="text-lg mb-6 text-pretty">{project.description}</p>
+            <div class="flex justify-center items-center gap-x-2">
+                {project.tags.map((tag=>(
+                    <tag.class>{tag.name}</tag.class>
+                )))}
+            </div>
+            {project.link && ( 
+                <div class="flex justify-end">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <ButtonPurple>
+                        <div class="flex gap-x-2 items-center">
+                            Try it 
+                            <svg class="rtl:rotate-180 w-3.5 h-5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </div>
+                    </ButtonPurple>
+                    </a>
+                </div>
+            )}
+            
+                {project.mobile ? <div class="flex gap-2 mb-2 mt-6 items-center"><GalleryMobile images={project.images}></GalleryMobile>
+                    <MobileMockup video={project.video}></MobileMockup></div>
+                     : <div class="mt-6"><LaptopMockup video={project.video}></LaptopMockup></div>}
+            
+        </article>
+    ))
+}

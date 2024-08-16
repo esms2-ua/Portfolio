@@ -1,0 +1,21 @@
+---
+import ExperienceItem from './ExperienceItem.astro'
+const EXPERIENCE = [
+    {
+        title: 'Software Engineer Intern',
+        company: 'Equinor, Norway',
+        date: 'June 2024 - August 2024',
+        description: 'Re-developed frontend of a predictive control tool for offshore applications. Utilized TypeScript/React/D3 to create an improved and responsive web interface. Built middleware server with Python and gRPC communication to integrate with legacy backend. Collaborated with an international team of six, taking on rotational leadership.'    },
+  
+]
+---
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">                  
+   {
+        EXPERIENCE.map(experience => (
+            <li class="ms-4">
+                <ExperienceItem {...experience} />
+            </li>
+        ))
+   }
+</ol>
+

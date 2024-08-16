@@ -1,0 +1,81 @@
+---
+import Badge from '../components/Badge.astro';
+import Layout from '../layouts/Layout.astro';
+import LinkedIn from '../components/icons/LinkedIn.astro';
+import SocialPill from '../components/SocialPill.astro';
+import Mail from '../components/icons/Mail.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Briefcase from '../components/icons/Briefcase.astro';
+import CodeIcon from '../components/icons/Code.astro';
+import Projects from '../components/Projects.astro';
+import ProjectReact from '../components/ProjectReact';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout title="Estela's portfolio - Game Developer">
+	<main class="px-4 ">
+		<SectionContainer class="py-44">
+			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl 
+			font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
+				Hey, I'm Estela
+				<a
+					href="https://linkedin.com/in/estela-sempere-maciá-4a77402b9/"
+					target="_blank"
+					rel="noopener"
+					class="flex justify-center items-center">
+					<Badge>Open to Work</Badge>
+				</a>
+			</h1>
+			<h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+				<span>Computer Science student. </span>
+				<span class="text-pink-300">Game Developer. </span>
+				<span class="text-cyan-200">From Alicante, Spain. </span>
+				<span class="opacity-75">Specialized in mobile and PC games.</span>
+			</h2>
+
+			<nav class="flex gap-x-4 mt-8 flex-wrap">
+				<SocialPill href="https://linkedin.com/in/estela-sempere-maciá-4a77402b9/">	
+					<LinkedIn class="size-4 lg:size-6"/>
+					LinkedIn
+				</SocialPill>
+				<SocialPill href="mailto:estelasemperemacia@gmail.com">	
+					<Mail class="size-4 lg:size-6"/>
+					estelasemperemacia@gmail.com
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="experience">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+				<Briefcase class="size-7" />
+				Work experience
+			</h2>
+			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="projects">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+				<CodeIcon class="size-7" />
+				Projects
+			</h2>
+			<Projects />
+		</SectionContainer>
+
+		<SectionContainer id="about">
+			<h2 class="text-3xl font-semibold mb-6">
+				About Me
+			</h2>
+			<About />
+		</SectionContainer>
+
+		<SectionContainer id="contact">
+			<h2 class="text-3xl font-semibold mb-6">
+				Contact
+			</h2>
+			<Contact />
+		</SectionContainer>
+	</main>
+</Layout>
+
